@@ -26,7 +26,7 @@ Rectangle::~Rectangle()
 
 void Rectangle::draw() const
 {
-	std::cout << "사각형 - (" << p1.x << ", " << p1.y << "), "
+	std::cout << "Rectangle - (" << p1.x << ", " << p1.y << "), "
 		<< "(" << p2.x << ", " << p2.y << ")" << '\n';
 }
 

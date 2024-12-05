@@ -26,7 +26,7 @@ Line::~Line()
 
 void Line::draw() const
 {
-	std::cout << "선 - (" << p1.x << ", " << p1.y << "), "
+	std::cout << "Line - (" << p1.x << ", " << p1.y << "), "
 		<< "(" << p2.x << ", " << p2.y << ")" << '\n';
 }
 

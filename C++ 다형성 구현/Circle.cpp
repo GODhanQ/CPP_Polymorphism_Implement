@@ -26,8 +26,8 @@ Circle::~Circle()
 
 void Circle::draw() const
 {
-	std::cout << "원 - 중심점(" << center.x << ", " << center.y
-		<< ") 반지름 " << rad << '\n';
+	std::cout << "Circle - center (" << center.x << ", " << center.y
+		<< ") radius " << rad << '\n';
 }
 
 Circle* Circle::clone() const

@@ -9,31 +9,32 @@
 #include "Menu.h"
 using namespace std;
 
+#define capacity 3
+
 int main()
 {
-	ShapeManager sm(100);
+	ShapeManager sm(capacity);
 	int command{};
 
-	sm.insert(new Triangle());
+	/*sm.insert(new Triangle());
 	sm.insert(new Triangle(Vertex(0, 0), Vertex(1, 1), Vertex(2, 2)));
 	sm.insert(new Circle(Vertex(1.23, 4.56), 7.89));
 
 	for (int i{}; i < 10; ++i) {
 		sm.insert(new Rectangle(Vertex(static_cast<double>(i), static_cast<double>(i + 1)),
 			Vertex(static_cast<double>(i * 2), static_cast<double>(i * 3))));
-	}
+	}*/
 
 	sm.insert(new Triangle(Vertex(3, 3), Vertex(4, 4), Vertex(5, 5)));
 	sm.insert(new Circle(Vertex(3.14, 3.14), 5.6));
 
 	while (true) {
-		if (100 == sm.current_capacity()) {
+		if (capacity == sm.current_capacity()) {
 			int pofcapa_command;
-			cout << "현재 수용 가능한 용량이 꽉 찼습니다." << '\n';
-			cout << "								v command number" << '\n';
-			cout << "프로그램 종료 :					0";
-			cout << "제일 첫번째 도형을 삭제한다 :		1";
-			cout << "수용 가능 용량을 늘린다 :			2";
+			cout << "current capacity is full." << '\n';
+			cout << "					v command number" << '\n';
+			cout << "Exit Program :				0\n";
+			cout << "Expand capacity :			1\n";
 
 			cin >> pofcapa_command;
 
@@ -42,11 +43,21 @@ int main()
 			}
 
 			else if (1 == pofcapa_command) {
-				sm.removeShapes(1);
+				int morecapacity;
+				cout << "put how much of capacity want to expand : ";
+				cin >> morecapacity;
+
+				if (morecapacity <= capacity) {
+					cout << "It will be more than current capacity";
+					break;
+				}
+				else
+					sm.ExpandCapacity(morecapacity);
 			}
 
-			else if (2 == pofcapa_command) {
-
+			else {
+				cout << "Wrong command input.\n";
+				break;
 			}
 		}
 
@@ -55,7 +66,7 @@ int main()
 		Menu();
 
 		// 3. 수행할 입력을 받아 수행하기
-		cout << "어떤 명령을 수행할까요? : ";
+		cout << "what command do? : ";
 		cin >> command;
 
 		if (0 == command) {
@@ -69,18 +80,18 @@ int main()
 		else if (2 == command) {
 			char YNcommand;
 			double p1_x, p1_y, p2_x, p2_y, p3_x, p3_y;
-			cout << "삼각형을 디폴트로 생성할까요? (Y/N) : ";
+			cout << "Make triangle for default? (Y/N) : ";
 			cin >> YNcommand;
 			if ('y' == YNcommand || 'Y' == YNcommand)
 				sm.insert(new Triangle());
 			else if ('n' == YNcommand || 'N' == YNcommand) {
-				cout << "세부사항을 입력해주세요. : ";
+				cout << "Please enter your details. : ";
 				cin >> p1_x >> p1_y >> p2_x >> p2_y >> p3_x >> p3_y;
 				sm.insert(new Triangle(Vertex(p1_x, p1_y), Vertex(p2_x, p2_y), Vertex(p3_x, p3_y)));
 			}
 
 			else {
-				cout << "다시 입력하세요.";
+				cout << "reinput here.";
 				continue;
 			}
 		}
@@ -88,18 +99,18 @@ int main()
 		else if (3 == command) {
 			char YNcommand;
 			double p1_x, p1_y, p2_x, p2_y;
-			cout << "사각형을 디폴트로 생성할까요? (Y/N) : ";
+			cout << "Make Rectangle for default? (Y/N) : ";
 			cin >> YNcommand;
 			if ('y' == YNcommand || 'Y' == YNcommand)
 				sm.insert(new Rectangle());
 			else if ('n' == YNcommand || 'N' == YNcommand) {
-				cout << "세부사항을 입력해주세요. : ";
+				cout << "Please enter your details. : ";
 				cin >> p1_x >> p1_y >> p2_x >> p2_y;
 				sm.insert(new Rectangle(Vertex(p1_x, p1_y), Vertex(p2_x, p2_y)));
 			}
 
 			else {
-				cout << "다시 입력하세요.";
+				cout << "reinput here.";
 				continue;
 			}
 		}
@@ -107,19 +118,19 @@ int main()
 		else if (4 == command) {
 			char YNcommand;
 			double p1_x, p1_y, rad;
-			cout << "원을 디폴트로 생성할까요? (Y/N) : ";
+			cout << "Make Circle for default? (Y/N) : ";
 			cin >> YNcommand;
 			if ('y' == YNcommand || 'Y' == YNcommand)
 				sm.insert(new Circle());
 
 			else if ('n' == YNcommand || 'N' == YNcommand) {
-				cout << "세부사항을 입력해주세요. : ";
+				cout << "Please enter your details. : ";
 				cin >> p1_x >> p1_y >> rad;
 				sm.insert(new Circle(Vertex(p1_x, p1_y), rad));
 			}
 
 			else {
-				cout << "다시 입력하세요.";
+				cout << "reinput here.";
 				continue;
 			}
 		}
@@ -127,26 +138,26 @@ int main()
 		else if (5 == command) {
 			char YNcommand;
 			double p1_x, p1_y, p2_x, p2_y;
-			cout << "선을 디폴트로 생성할까요? (Y/N) : ";
+			cout << "Make line for default? (Y/N) : ";
 			cin >> YNcommand;
 			if ('y' == YNcommand || 'Y' == YNcommand)
 				sm.insert(new Line());
 
 			else if ('n' == YNcommand || 'N' == YNcommand) {
-				cout << "세부사항을 입력해주세요. : ";
+				cout << "Please enter your details. : ";
 				cin >> p1_x >> p1_y >> p2_x >> p2_y;
 				sm.insert(new Line(Vertex(p1_x, p1_y), Vertex(p2_x, p2_y)));
 			}
 
 			else {
-				cout << "다시 입력하세요.";
+				cout << "reinput here.";
 				continue;
 			}
 		}
 		// 4. 추가할 다른 기능 : 원하는 도형 삭제, 선택한 클래스의 모든 도형 삭제
 		else if (6 == command) {
 			int remove_command;
-			cout << "몇번 도형을 삭제할까요?";
+			cout << "delete what number of shpe?";
 			cin >> remove_command;
 			sm.removeShapes(remove_command);
 		}
@@ -163,12 +174,12 @@ int main()
 			sm.removeSpecificShapes(typeid(Circle));
 		}
 
-		else if (5 == command) {
+		else if (10 == command) {
 			sm.removeSpecificShapes(typeid(Line));
 		}
 
 		else
-			cout << "잘못된 입력입니다.";
+			cout << "wrong command.";
 	}
 		// 5. 도형관리자가 관리할 수 있는 도형 갯수가 꽉 찼다고 가정하자.
 		//    이 경우 새로운 도형을 추가할 수 있도록 프로그램을 변형하라

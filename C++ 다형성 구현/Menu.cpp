@@ -12,18 +12,18 @@ void Menu()
 {
 	print("\n");
 	print("		Menu			v command number \n");
-	print("- 전체 도형 그리기 :			1 \n");
-	print("- 원하는 도형 추가 \n");
-	print("		- 삼각형 :		2 \n");
-	print("		- 사각형 :		3 \n");
-	print("		- 원 :			4 \n");
-	print("		- 선 :			5 \n");
-	print("- 원하는 도형 삭제 \n");
-	print("		- 지정 :		6 \n");
-	print("		- 삼각형 :		7 \n");
-	print("		- 사각형 :		8 \n");
-	print("		- 원 :			9 \n");
-	print("		- 선 :			10 \n");
-	print("- 프로그램 종료 :			0 \n");
+	print("- Draw all of Shapes :			1 \n");
+	print("- Put shapes what you want \n");
+	print("		- Triangle :		2 \n");
+	print("		- Rectangle :		3 \n");
+	print("		- Circle :		4 \n");
+	print("		- Line :		5 \n");
+	print("- Delete what you want \n");
+	print("		- Designation :		6 \n");
+	print("		- Triangle :		7 \n");
+	print("		- Rectangle :		8 \n");
+	print("		- Circle :		9 \n");
+	print("		- Line :		10 \n");
+	print("- Exit Program :			0 \n");
 	print("\n");
 }
