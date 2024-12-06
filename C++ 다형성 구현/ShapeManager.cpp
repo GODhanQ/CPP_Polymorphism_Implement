@@ -58,7 +58,7 @@ void ShapeManager::removeShapes(int idx)
 	delete shapes[idx];
 
 	// 2. 배열 재구성
-	for (int i = idx; i < nShape; ++i) {
+	for (int i = idx - 1; i < nShape - 1; ++i) {
 		shapes[i] = shapes[i + 1];
 	}
 
