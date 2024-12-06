@@ -63,7 +63,8 @@ void ShapeManager::removeShapes(int idx)
 	}
 
 	// 3. 마지막 포인터를 nullptr로 설정
-	shapes[nShape - 1] = nullptr;
+	//shapes[nShape - 1] = nullptr;
+	// 어짜피 nShape로 범위를 알고 넘어가지 않기에 초기화할 필요가 없음
 
 	// 4. 크기 감소
 	--nShape;
