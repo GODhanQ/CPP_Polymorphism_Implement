@@ -1,10 +1,5 @@
 #include <iostream>
 #include <print>
-#include "ShapeManager.h"
-#include "Vertex.h"
-#include "Triangle.h"
-#include "Rectangle.h"
-#include "Circle.h"
 #include "Menu.h"
 using namespace std;
 

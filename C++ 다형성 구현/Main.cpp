@@ -9,10 +9,9 @@
 #include "Menu.h"
 using namespace std;
 
-#define capacity 3
-
 int main()
 {
+	int capacity = { 3 };
 	ShapeManager sm(capacity);
 	int command{};
 
@@ -51,8 +50,17 @@ int main()
 					cout << "It will be more than current capacity";
 					break;
 				}
-				else
+
+				else if (morecapacity < 0) {
+					cout << "It will be more than current capacity";
+					break;
+				}
+
+				else {
 					sm.ExpandCapacity(morecapacity);
+					capacity = morecapacity;
+				}
+
 			}
 
 			else {

@@ -30,8 +30,8 @@ void ShapeManager::draw() const
 {
 	cout << "-----------------------------------" << '\n';
 	cout << "Draw all of managing shapes" << '\n';
-	cout << "Maxinum " << capacity << "piece of shpae can put in capacity" << '\n';
-	cout << "All of " << nShape << "shapes in here" << '\n';
+	cout << "Maxinum " << capacity << " piece of shpae can put in capacity" << '\n';
+	cout << "All of " << nShape << " shapes in here" << '\n';
 	cout << "-----------------------------------" << '\n';
 
 	for (int i{}; i < nShape; ++i) {
